@@ -1,0 +1,34 @@
+/* =========================================================================
+   Home Improvement Local — Airtable config
+   -------------------------------------------------------------------------
+   COPY this file to `config.js` and fill in your values to switch the site
+   from demo mode to LIVE Airtable mode.
+
+   ⚠️ WARNING: putting an Airtable PAT (token) in a publicly served config.js
+   exposes it to anyone who views source. For a real published site use ONE of:
+     • Softr (recommended) — builds the public site from this base, token stays
+       server-side. https://www.softr.io/
+     • A tiny serverless proxy (Cloudflare Worker / Netlify Function) that holds
+       the token and exposes a safe endpoint — then set `apiBase` to that URL.
+   This direct-token approach is fine for a localhost preview only.
+   ========================================================================= */
+
+window.HIL_CONFIG = {
+  airtable: {
+    // Your base ID (starts with "app...")
+    baseId: "appXXXXXXXXXXXXXX",
+
+    // Personal Access Token (starts with "pat..."). See warning above.
+    token: "patXXXXXXXXXXXXXXXXXXXXXXXX",
+
+    // Optional: override the API host if using a proxy
+    apiBase: "https://api.airtable.com/v0",
+
+    // Table names in your base
+    tables: {
+      categories: "Categories",  // fields: Name, Icon, Count
+      reviews: "Reviews",        // fields: Review, Rating, Author, Location
+      jobs: "Jobs"               // fields: Name, Email, Phone, Category, Location, Description, Status
+    }
+  }
+};

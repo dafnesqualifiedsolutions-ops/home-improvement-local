@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Improvement Local — Find trusted local home improvement pros</title>
+  <meta name="description" content="Home Improvement Local connects homeowners with vetted, reviewed local tradespeople. Post a job for free and get matched with pros near you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark">⚒</span>
+        <span class="brand-name">Home Improvement <strong>Local</strong></span>
+      </a>
+      <nav class="main-nav">
+        <a href="#categories">Find a Pro</a>
+        <a href="#how">How it Works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#for-pros">For Pros</a>
+      </nav>
+      <div class="header-cta">
+        <a href="#post" class="btn btn-primary">Post a Job</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <h1>Find trusted local home improvement pros</h1>
+      <p class="hero-sub">Post your job for free and get matched with vetted tradespeople in your area. Real reviews. No upfront cost.</p>
+
+      <form class="search-bar" id="hero-search" onsubmit="return goToPost(event)">
+        <div class="field">
+          <label for="q">What do you need done?</label>
+          <input type="text" id="q" name="q" placeholder="e.g. Fix leaking kitchen tap" />
+        </div>
+        <div class="field field-loc">
+          <label for="loc">Location / ZIP</label>
+          <input type="text" id="loc" name="loc" placeholder="City or ZIP code" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-search">Get Matched</button>
+      </form>
+
+      <ul class="trust-strip">
+        <li><span class="tick">✓</span> Vetted &amp; checked pros</li>
+        <li><span class="tick">✓</span> Verified customer reviews</li>
+        <li><span class="tick">✓</span> Satisfaction guarantee</li>
+        <li><span class="tick">✓</span> Post a job — 100% free</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Popular categories ===== -->
+  <section class="section" id="categories">
+    <div class="container">
+      <h2 class="section-title">Popular categories</h2>
+      <p class="section-lead">Browse the trades homeowners hire most in your area.</p>
+      <div class="cat-grid" id="cat-grid"><!-- populated by app.js --></div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="section section-alt" id="how">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Post your job for free</h3>
+          <p>Tell us what you need and where. It takes under two minutes and costs nothing.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Local pros respond</h3>
+          <p>Vetted tradespeople near you see your job and send quotes or offers.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Compare &amp; hire</h3>
+          <p>Read reviews, compare profiles and prices, then choose the right pro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reviews ===== -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Real reviews from real customers</h2>
+      <p class="section-lead">Every review on Home Improvement Local is left by a homeowner who used a pro through the platform.</p>
+      <div class="review-grid" id="review-grid"><!-- populated by app.js --></div>
+    </div>
+  </section>
+
+  <!-- ===== Post a job ===== -->
+  <section class="section section-alt" id="post">
+    <div class="container narrow">
+      <h2 class="section-title">Post your job</h2>
+      <p class="section-lead">Get matched with local pros today. No card required.</p>
+      <form class="job-form" id="job-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <label for="category">Trade / category *</label>
+            <select id="category" name="category" required>
+              <option value="">Select a trade…</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="location">Location / ZIP *</label>
+          <input type="text" id="location" name="location" required placeholder="City or ZIP code" />
+        </div>
+        <div class="form-group">
+          <label for="description">Describe the job *</label>
+          <textarea id="description" name="description" rows="4" required placeholder="Tell pros what needs doing, roughly when, and any details that help."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send my job to local pros</button>
+        <p class="form-status" id="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== For pros ===== -->
+  <section class="section cta-pros" id="for-pros">
+    <div class="container narrow center">
+      <h2 class="section-title light">Are you a trade professional?</h2>
+      <p class="section-lead light">Get a steady stream of local job leads matched to your skills. Join free and only pay when you win work.</p>
+      <a href="#post" class="btn btn-light">Get local leads</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">⚒</span>
+        <span class="brand-name">Home Improvement <strong>Local</strong></span>
+        <p class="footer-tag">Trusted local home improvement, matched to you.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Homeowners</h4>
+          <a href="#post">Post a job</a>
+          <a href="#categories">Find a pro</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <div>
+          <h4>Pros</h4>
+          <a href="#for-pros">Join free</a>
+          <a href="#for-pros">Get leads</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#how">How it works</a>
+          <a href="#">Guarantee</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© <span id="year"></span> Home Improvement Local. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
