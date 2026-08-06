@@ -44,10 +44,10 @@
 
   var SEED_REVIEWS = [
     { stars: 5, text: "Sorted our leaking kitchen tap the same day. Reliable, tidy and fair price.", author: "Sarah M.", loc: "Manchester" },
-    { stars: 5, text: "Rewired our extension and explained everything clearly. Proper pro.", author: "James T.", loc: "Austin, TX" },
+    { stars: 5, text: "Rewired our extension and explained everything clearly. Proper pro.", author: "James T.", loc: "Birmingham" },
     { stars: 5, text: "New bathroom fitted on schedule. Communication was excellent throughout.", author: "Priya K.", loc: "Leeds" },
     { stars: 5, text: "Garden landscaped beautifully. Turned up when they said they would.", author: "Daniel R.", loc: "Bristol" },
-    { stars: 5, text: "Roof repair after storm damage — fast, clean and guaranteed.", author: "Emma L.", loc: "Denver, CO" },
+    { stars: 5, text: "Roof repair after storm damage — fast, clean and guaranteed.", author: "Emma L.", loc: "Leeds" },
     { stars: 5, text: "Painting and decorating done to a high standard. Would hire again.", author: "Tom B.", loc: "Glasgow" }
   ];
 
