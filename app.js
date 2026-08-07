@@ -177,11 +177,28 @@
         status.textContent = "Could not submit right now (" + err.message + "). Please try again or email us.";
       });
     } else {
-      // Demo mode: no backend. Log the lead and show success.
-      console.log("New job lead (demo mode):", fields);
-      status.className = "form-status ok";
-      status.textContent = "✓ Demo mode: lead captured locally. Connect Airtable (see README) to start collecting real leads.";
-      form.reset();
+      // Netlify Forms: POST the lead to the hosted form endpoint.
+      var fd = new FormData();
+      fd.append("form-name", "job-form");
+      fd.append("Name", fields.Name);
+      fd.append("Email", fields.Email);
+      fd.append("Phone", fields.Phone);
+      fd.append("Category", fields.Category);
+      fd.append("Location", fields.Location);
+      fd.append("Description", fields.Description);
+      fd.append("Status", "New");
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(fd).toString()
+      }).then(function () {
+        status.className = "form-status ok";
+        status.textContent = "✓ Thanks! Your job is live and local pros will be in touch soon.";
+        form.reset();
+      }).catch(function (err) {
+        status.className = "form-status err";
+        status.textContent = "Could not submit right now. Please try again or email us.";
+      });
     }
   }
 

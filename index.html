@@ -111,7 +111,8 @@
     <div class="container narrow">
       <h2 class="section-title">Post your job</h2>
       <p class="section-lead">Get matched with local pros today. No card required.</p>
-      <form class="job-form" id="job-form">
+      <form class="job-form" id="job-form" name="job-form" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
+        <p class="hidden" style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
         <div class="form-row">
           <div class="form-group">
             <label for="name">Your name *</label>
