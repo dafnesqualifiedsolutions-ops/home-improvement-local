@@ -1,7 +1,3 @@
 [build]
   publish = "."
   command = ""
-
-[[forms]]
-  name = "job-form"
-  path = "/"

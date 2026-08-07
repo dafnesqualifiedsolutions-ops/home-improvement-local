@@ -150,55 +150,24 @@
   }
 
   // ---- Form handling ----
+  // Netlify Forms: the form submits NATIVELY (method=POST, action="/") so
+  // Netlify's endpoint stores the lead. We DON'T preventDefault — we only
+  // show an inline status after Netlify's own success redirect posts back.
   function handleSubmit(e) {
-    e.preventDefault();
+    // Allow native submission to proceed (Netlify intercepts it).
     var status = el("form-status");
-    var form = el("job-form");
-    var fields = {
-      Name: el("name").value.trim(),
-      Email: el("email").value.trim(),
-      Phone: el("phone").value.trim(),
-      Category: el("category").value,
-      Location: el("location").value.trim(),
-      Description: el("description").value.trim(),
-      Status: "New"
-    };
-
     status.className = "form-status";
     status.textContent = "Sending…";
+    // The browser performs the real POST to Netlify; on return Netlify
+    // reloads the page (or its success page) and we read ?success below.
+  }
 
-    if (USE_AIRTABLE) {
-      submitToAirtable(fields).then(function () {
-        status.className = "form-status ok";
-        status.textContent = "✓ Thanks! Your job is live and local pros will be in touch soon.";
-        form.reset();
-      }).catch(function (err) {
-        status.className = "form-status err";
-        status.textContent = "Could not submit right now (" + err.message + "). Please try again or email us.";
-      });
-    } else {
-      // Netlify Forms: POST the lead to the hosted form endpoint.
-      var fd = new FormData();
-      fd.append("form-name", "job-form");
-      fd.append("Name", fields.Name);
-      fd.append("Email", fields.Email);
-      fd.append("Phone", fields.Phone);
-      fd.append("Category", fields.Category);
-      fd.append("Location", fields.Location);
-      fd.append("Description", fields.Description);
-      fd.append("Status", "New");
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(fd).toString()
-      }).then(function () {
-        status.className = "form-status ok";
-        status.textContent = "✓ Thanks! Your job is live and local pros will be in touch soon.";
-        form.reset();
-      }).catch(function (err) {
-        status.className = "form-status err";
-        status.textContent = "Could not submit right now. Please try again or email us.";
-      });
+  // Show confirmation if Netlify redirected back with ?success (or after POST).
+  if (location.search.indexOf("success") !== -1) {
+    var s = el("form-status");
+    if (s) {
+      s.className = "form-status ok";
+      s.textContent = "✓ Thanks! Your job is live and local pros will be in touch soon.";
     }
   }
 
