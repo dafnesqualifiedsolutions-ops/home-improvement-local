@@ -8,7 +8,7 @@
 
    2. LIVE AIRTABLE MODE: if window.HIL_CONFIG (see config.js) contains your
       Airtable base ID + a read-only token + table names, the page fetches
-      categories, reviews and pros live from Airtable and the job form POSTs
+      categories, reviews and professionals live from Airtable and the job form POSTs
       new leads straight into your "Jobs" table.
 
    SECURITY NOTE: A real published site must NOT ship an Airtable PAT in the
@@ -28,23 +28,23 @@
 
   // ---- Seed data (used when Airtable is not configured) ----
   var SEED_CATEGORIES = [
-    { icon: "🔧", name: "Plumbing", count: "1,200+ pros" },
-    { icon: "💡", name: "Electrician", count: "980+ pros" },
-    { icon: "🏠", name: "Roofing", count: "640+ pros" },
-    { icon: "🛁", name: "Bathroom Fitting", count: "720+ pros" },
-    { icon: "🎨", name: "Painter / Decorator", count: "1,050+ pros" },
-    { icon: "🌿", name: "Gardener / Landscaping", count: "560+ pros" },
-    { icon: "🧱", name: "Builder", count: "810+ pros" },
-    { icon: "🪵", name: "Carpenter", count: "490+ pros" },
-    { icon: "🚪", name: "Handyman", count: "1,400+ pros" },
-    { icon: "🔥", name: "Heating / HVAC", count: "430+ pros" },
-    { icon: "🪟", name: "Windows / Glazing", count: "380+ pros" },
-    { icon: "🌳", name: "Tree Surgeon", count: "260+ pros" }
+    { icon: "🔧", name: "Plumbing", count: "1,200+ professionals" },
+    { icon: "💡", name: "Electrician", count: "980+ professionals" },
+    { icon: "🏠", name: "Roofing", count: "640+ professionals" },
+    { icon: "🛁", name: "Bathroom Fitting", count: "720+ professionals" },
+    { icon: "🎨", name: "Painter / Decorator", count: "1,050+ professionals" },
+    { icon: "🌿", name: "Gardener / Landscaping", count: "560+ professionals" },
+    { icon: "🧱", name: "Builder", count: "810+ professionals" },
+    { icon: "🪵", name: "Carpenter", count: "490+ professionals" },
+    { icon: "🚪", name: "Handyman", count: "1,400+ professionals" },
+    { icon: "🔥", name: "Heating / HVAC", count: "430+ professionals" },
+    { icon: "🪟", name: "Windows / Glazing", count: "380+ professionals" },
+    { icon: "🌳", name: "Tree Surgeon", count: "260+ professionals" }
   ];
 
   var SEED_REVIEWS = [
     { stars: 5, text: "Sorted our leaking kitchen tap the same day. Reliable, tidy and fair price.", author: "Sarah M.", loc: "Manchester" },
-    { stars: 5, text: "Rewired our extension and explained everything clearly. Proper pro.", author: "James T.", loc: "Birmingham" },
+    { stars: 5, text: "Rewired our extension and explained everything clearly. Proper professional.", author: "James T.", loc: "Birmingham" },
     { stars: 5, text: "New bathroom fitted on schedule. Communication was excellent throughout.", author: "Priya K.", loc: "Leeds" },
     { stars: 5, text: "Garden landscaped beautifully. Turned up when they said they would.", author: "Daniel R.", loc: "Bristol" },
     { stars: 5, text: "Roof repair after storm damage — fast, clean and guaranteed.", author: "Emma L.", loc: "Leeds" },
@@ -167,7 +167,7 @@
     var s = el("form-status");
     if (s) {
       s.className = "form-status ok";
-      s.textContent = "✓ Thanks! Your job is live and local pros will be in touch soon.";
+      s.textContent = "✓ Thanks! Your job is live and local professionals will be in touch soon.";
     }
   }
 

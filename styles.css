@@ -156,7 +156,7 @@ a { color: inherit; text-decoration: none; }
 .form-status.ok { color: var(--primary); font-weight: 600; }
 .form-status.err { color: #c0392b; font-weight: 600; }
 
-/* ===== CTA pros ===== */
+/* ===== CTA professionals ===== */
 .cta-pros { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 64px 0; }
 .cta-pros .btn-light { color: var(--primary-dark); margin-top: 8px; }
 
